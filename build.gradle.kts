@@ -1,3 +1,4 @@
+import org.jetbrains.intellij.platform.gradle.IntelliJPlatformType
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
@@ -38,6 +39,15 @@ intellijPlatform {
         changeNotes = """
       Initial version
     """.trimIndent()
+    }
+
+    pluginVerification {
+        // Configure plugin verification settings
+        // Read more: https://plugins.jetbrains.com/docs/intellij/plugin-verification.html
+        ides {
+            ide(IntelliJPlatformType.RubyMine, "2025.1")
+            recommended()
+        }
     }
 }
 
